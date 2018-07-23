@@ -29,42 +29,35 @@ public class ListSubsets {
 	}
 
 	private static void GetListSubset(int n, int k) {
-		StringBuilder limitBottom = LimitBottom(n, k);
-		StringBuilder limitTop = LimitTop(n, k);
-		System.out.println(limitBottom);
+		StringBuilder subset = fistSubset(n, k);
+		
+		System.out.println(subset);
 		int i=k-1;
-		while(!limitBottom.equals(limitTop)) {
-			if(((int) limitBottom.charAt(i)-48) < (n-k+i+1) ) {
-				limitBottom.setCharAt(i, (char) ((int)limitBottom.charAt(i)+1));
+		while(true) {
+			if(((int) subset.charAt(i)-48) < (n-k+i+1) ) {
+				subset.setCharAt(i, (char) ((int)subset.charAt(i)+1));
 				for(int j=i+1; j<k; j++) {
-					limitBottom.setCharAt(j, (char) ((int)limitBottom.charAt(j-1)+1));
+					subset.setCharAt(j, (char) ((int)subset.charAt(j-1)+1));
 				}
 				i=k-1;
-				System.out.println(limitBottom);
+				System.out.println(subset);
 				
 			}
 			else {
 				if(i>0) i--;
+				else break;
 			}
 		}
-		System.out.println(limitBottom);
 	}
 	
-	private static StringBuilder LimitTop(int n, int k) {
-		StringBuilder limitTop = new StringBuilder();
-		for(int i=0; i< k; i++) {
-			limitTop.append(n-k+i+1);
-		}
-		return limitTop;
-		
-	}
+
 	
-	private static StringBuilder LimitBottom(int n, int k) {
-		StringBuilder limitBottom = new StringBuilder();
+	private static StringBuilder fistSubset(int n, int k) {
+		StringBuilder subset = new StringBuilder();
 		for(int i=0; i< k; i++) {
-			limitBottom.append(i+1);
+			subset.append(i+1);
 		}
-		return limitBottom;
+		return subset;
 		
 	}
 
