@@ -56,15 +56,13 @@ public class ListPermutations {
 	private static void permutation(int[] arr) {
 		int[] temp = arr.clone();
 		int n=arr.length;
-		int i=n-1;
+		int i=n-1; 
 		print(temp);
 		while(!checkFinish(arr, temp)) {
 			if(temp[i-1]<temp[i]) {
-				int x = temp[i];
-				temp[i]=temp[i-1];
-				temp[i-1]=x;
-				print(temp);
-				i=n-1;
+				for(int j=i-1; j<n;j++) {
+					
+				}
 			}
 			else {
 				if(i>1) i--;
