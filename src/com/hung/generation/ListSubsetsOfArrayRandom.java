@@ -17,7 +17,7 @@ public class ListSubsetsOfArrayRandom {
 		BufferedReader br = null;
 		try {
 			fr = new FileReader(new File(
-					"C:\\Users\\PHAMHUNG\\eclipse-workspace\\Algorithm\\src\\com\\hung\\generation\\testLSOAR.txt"));
+					"src/com/hung/generation/testLSOAR.txt"));
 			br = new BufferedReader(fr);
 			String line = br.readLine();
 			String[] arrLine = line.split("\\s");
@@ -56,7 +56,7 @@ public class ListSubsetsOfArrayRandom {
 		Print(arrSubset);
 		int i = k - 1;
 		int n = arr.length;
-		while (!CheckFinish(arrSubset, arr)) {
+		while (true) {
 			if (arrSubset[i] < arr[n - k + i]) {
 				arrSubset[i] = arr[RetrieveIndexInArray(arrSubset[i], arr) + 1];
 				for (int j = i + 1; j < k; j++) {
@@ -89,16 +89,6 @@ public class ListSubsetsOfArrayRandom {
 				return i;
 		}
 		return -1;
-	}
-
-	private static boolean CheckFinish(int[] arrSubset, int[] arr) {
-		int k = arrSubset.length;
-		int n = arr.length;
-		for (int i =0; i < k; i++) {
-			if (arrSubset[i] != arr[n-k+i])
-				return false;
-		}
-		return true;
 	}
 
 	private static int[] CreateFirstSubset(int[] arr, int k) {

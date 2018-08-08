@@ -23,18 +23,15 @@ public class BinarySequenceGeneration {
 		scanner.close();
 	}
 	
-	public static StringBuilder SequenceGeneration(int n) {
-		StringBuilder binarySequence = new StringBuilder();
+	public static void SequenceGeneration(int n) {
 		StringBuilder firstConfiguration = FirstConfiguration(n);
-		StringBuilder finallyConfiguration = FinallyConfiguration(n);
-		binarySequence.append(firstConfiguration);
 		
 		//display first configuration
 		System.out.println(firstConfiguration);
 		
 		int i=n-1;
 		
-		while(!firstConfiguration.equals(finallyConfiguration)) //when first configuration not same as finally configuration 
+		while(true) 
 		{
 			if(firstConfiguration.charAt(i) == '0') 
 			{
@@ -49,9 +46,9 @@ public class BinarySequenceGeneration {
 			else 
 			{
 				if(i!=0) i--;
+				else break;
 			}
 		}
-		return binarySequence;
 	}
 
 	//first configuration as same as 00...0
@@ -62,15 +59,4 @@ public class BinarySequenceGeneration {
 		}
 		return s;
 	}
-	
-	//finally configuration as same as 11...1
-	public static StringBuilder FinallyConfiguration(int n) {
-		StringBuilder s = new StringBuilder();
-		for(int i=0; i<n; i++) {
-			s.append('1');
-		}
-		return s;
-	}
-	
-	
 }
