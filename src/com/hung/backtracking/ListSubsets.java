@@ -18,12 +18,12 @@ public class ListSubsets {
 	static int n,k;
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
 		System.out.println("n=");
 		n = input.nextInt();
 		System.out.println("k=");
 		k = input.nextInt();
+		
 		x = new int[k+1];
 		for(int i=0; i<=k; i++) {
 			x[i]=0;

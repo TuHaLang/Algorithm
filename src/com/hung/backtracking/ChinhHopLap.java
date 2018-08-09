@@ -1,5 +1,6 @@
 package com.hung.backtracking;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ChinhHopLap {
@@ -15,22 +16,25 @@ public class ChinhHopLap {
 		k= input.nextInt();
 		x = new int[k+1];
 		y = new boolean[n+1];
-		for(int i=0; i<4; i++) {
-			y[i]=true;
-		}
+		Arrays.fill(y,true);
+		//start try first element
 		generationSequence(1);
 		input.close();
 	}
 
 	private static void generationSequence(int i) {
-		for(int j=1;j<=n;j++) {
-			if(y[j]) {
-				x[i]=j;
-				if(i==k) print();
-				else {
-					y[j]=false;
-					generationSequence(i+1);
-					y[j]=true;
+		for(int j=1;j<=n;j++) //try alternate element in the assemblage
+		{
+			if(y[j]) //if the element haven't used yet
+			{
+				x[i]=j; //set this element in the sequence
+				if(i==k) //if have already set 
+					print();
+				else 
+				{
+					y[j]=false; //tick this element have use
+					generationSequence(i+1); //continue try...
+					y[j]=true; //untick
 				}
 			}
 		}

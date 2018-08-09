@@ -3,8 +3,15 @@ package com.hung.backtracking;
 public class AnalysisNumerical {
 
 	static int n=10;
+	//variable to store the element under analysis
 	static int[] x = new int[1000];
+	//variable to store sum i
 	static int[] t = new int[1000];
+	
+	/* t[i+1] <= n
+	 * x[i] + x[i+1] + t[i-1] <= n
+	 * => x[i] < (n-t[i-1])/2
+	 * */
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
