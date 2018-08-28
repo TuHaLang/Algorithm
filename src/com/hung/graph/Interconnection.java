@@ -75,7 +75,7 @@ public class Interconnection {
 	
 	static void Try(int i) {
 		for(int j=1; j<=n; j++) {
-			if(c[i][j]==1 && )
+			//if(c[i][j]==1 && )
 		}
 	}
 }
