@@ -49,6 +49,13 @@ public class Interconnection {
 			
 			Arrays.fill(p, 0);
 			
+			Solve(n);
+			
+			System.out.print("p[]: ");
+			for(int i=1; i<=n; i++) {
+				System.out.print(p[i]+"   ");
+			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -73,9 +80,23 @@ public class Interconnection {
 		
 	}
 	
-	static void Try(int i) {
-		for(int j=1; j<=n; j++) {
-			//if(c[i][j]==1 && )
+
+	static void Solve(int n) {
+		int i,j,k,l,d;
+		d=0;
+		for(i=1;i<=n;i++) {
+			if(p[i]==0) {
+				d++;
+				p[i]=d;
+				for(j=1;j<=n;j++) {
+					for(l=1;l<=n;l++) {
+						if(c[l][j]==1 && p[l]==d && p[j]==0) {
+							p[j]=d;
+						}
+					}
+				}
+			}
 		}
+		System.out.println(d);
 	}
 }
